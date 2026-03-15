@@ -69,6 +69,7 @@
                         name: "ASBO STAY HOTEL",
                         address: "10907, Kin, Okinawa, 904-1201 日本",
                         price: "9,900 日幣",
+                        mapCode: "206 143 621 *20",
                         features: ["近 KIN 日出海灘", "離山開車約 25 分鐘"]
                     },
                     events: [
@@ -77,11 +78,12 @@
                             activity: "ORIX 旭橋站西店 取車", 
                             icon: <IconCar />, 
                             location: "沖縄県那覇市西2-3-1",
-                            detail: "車型：Fit 同等級 (SA) | 電話：098-866-0543 |　費用：￥ 11,320（租車費＋安心方案(RAP)）"
+                            detail: "車型：Fit 同等級 (SA) | 電話：098-866-0543",
+                            mapCode: "33 155 080 *06"
                         },
-                        { time: "中午", activity: "永旺夢樂城 沖繩來客夢", icon: <IconShopping />, location: "AEON MALL Okinawa Rycom", mapCode: "33 530 406 *45" },
-                        { time: "下午", activity: "金武町新開地 (美式復古風)", icon: <IconMapPin />, location: "Shinkaichi, Kin" },
-                        { time: "食記", activity: "King Tacos 金武本店 (塔可飯)", icon: <IconInfo />, location: "King Tacos Kin" }
+                        { time: "中午", activity: "永旺夢樂城 沖繩來客夢", icon: <IconShopping />, location: "AEON MALL Okinawa Rycom", mapCode: "33 530 174 *76" },
+                        { time: "下午", activity: "金武町新開地 (美式復古風)", icon: <IconMapPin />, location: "Shinkaichi, Kin", mapCode: "206 110 846 *56" },
+                        { time: "食記", activity: "King Tacos 金武本店 (塔可飯)", icon: <IconInfo />, location: "King Tacos Kin", mapCode: "206 110 819 *87" }
                     ]
                 },
                 {
@@ -95,13 +97,14 @@
                         features: ["那霸永旺購物中心步行 1 分鐘", "近小祿站"]
                     },
                     events: [
-                        { time: "上午", activity: "恩納訪視 RIZZAN (宿舍採買)", icon: <IconMapPin />, location: "Rizzan Sea-Park Hotel Tancha-Bay" },
+                        { time: "上午", activity: "恩納訪視 RIZZAN (宿舍採買)", icon: <IconMapPin />, location: "Rizzan Sea-Park Hotel Tancha-Bay", mapCode: "206 158 067 *40" },
                         { 
                             time: "18:00", 
                             activity: "ORIX 旭橋站西店 還車", 
                             icon: <IconCar />, 
                             location: "沖縄県那覇市西2-3-1",
-                            detail: "請預留加油與檢查車況時間"
+                            detail: "請預留加油與檢查車況時間",
+                            mapCode: "33 155 080 *06"
                         },
                         { time: "晚上", activity: "那霸永旺購物中心採購", icon: <IconShopping />, location: "AEON Naha" }
                     ]
@@ -225,7 +228,7 @@
                                                 <span className="text-xs font-bold uppercase tracking-widest text-indigo-400">{event.time}</span>
                                                 <h3 className="text-xl font-bold text-slate-800 mt-1">{event.activity}</h3>
                                                 {event.detail && (
-                                                    <p className="text-sm text-slate-500 mt-1 flex items-center gap-1">
+                                                    <p className="text-sm text-slate-500 mt-1">
                                                         {event.detail}
                                                     </p>
                                                 )}
@@ -236,7 +239,7 @@
                                                 )}
                                                 {event.mapCode && (
                                                     <div className="mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-amber-100 text-amber-700 text-xs font-bold border border-amber-200">
-                                                        <IconNavigation /> Map Code: {event.mapCode}
+                                                        <IconNavigation /> Mapcode: {event.mapCode}
                                                     </div>
                                                 )}
                                             </div>
@@ -274,6 +277,11 @@
                                                 <span className="mt-0.5"><IconMapPin /></span>
                                                 <p className="text-sm leading-relaxed">{itineraryData[activeDay].hotel.address}</p>
                                             </div>
+                                            {itineraryData[activeDay].hotel.mapCode && (
+                                                <div className="mb-6 inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/10 text-white text-xs font-bold border border-white/20">
+                                                    <IconNavigation /> Mapcode: {itineraryData[activeDay].hotel.mapCode}
+                                                </div>
+                                            )}
                                             <div className="flex flex-wrap gap-2 mb-8">
                                                 {itineraryData[activeDay].hotel.features.map((f, i) => (
                                                     <span key={i} className="text-xs px-3 py-1.5 bg-white/10 text-slate-200 rounded-lg backdrop-blur-sm">
@@ -294,8 +302,7 @@
                                 )}
                             </div>
                         </div>
-
-
+ 
                     </main>
 
                     <footer className="max-w-4xl mx-auto px-8 pt-12 text-center">
