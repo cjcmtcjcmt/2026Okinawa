@@ -50,7 +50,12 @@
             const itineraryData = [
                 {
                     dateKey: "2026-04-04", day: "4/4 (六)", title: "那霸市區巡禮",
-                    hotel: { name: "GRG 飯店那霸東町", address: "6-16 Higashimachi, Naha, Okinawa-ken, 900-0034 日本", price: "11,377 日幣", features: ["國際通步行 4 分鐘", "那霸郵輪碼頭步行 8 分鐘", "波上海灘步行 10 分鐘"] },
+                    hotel: { 
+                        name: "Glory island okinawa -SOBE", 
+                        address: "2-41-14 Sobe, Naha, Okinawa-ken, 900-0023 日本", 
+                        price: "查詢中", 
+                        features: ["那霸市中心公寓式飯店", "近漫湖公園", "交通便利，適合居家感住宿"] 
+                    },
                     events: [
                         { time: "08:10", activity: "搭乘 CI120 前往沖繩", icon: <IconPlane />, detail: "桃園 T2 出發 | 10:45 抵達那霸 I 航廈", statusUrl: "https://tw.trip.com/flights/status-ci120/" },
                         { time: "上午", activity: "Outlet 購物 / 國際通逛街", icon: <IconShopping />, location: "Okinawa Outlet Mall Ashibinaa" },
@@ -230,7 +235,7 @@
                                                 <div className="flex items-start gap-2 text-slate-400 mb-6"><IconMapPin /> <p className="text-sm">{itineraryData[activeDay].hotel.address}</p></div>
                                                 {itineraryData[activeDay].hotel.mapCode && <div className="mb-6 inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/10 text-white text-xs font-bold border border-white/20"><IconNavigation /> Mapcode: {itineraryData[activeDay].hotel.mapCode}</div>}
                                                 <div className="flex flex-wrap gap-2 mb-8">{itineraryData[activeDay].hotel.features.map((f, i) => <span key={i} className="text-xs px-3 py-1.5 bg-white/10 text-slate-200 rounded-lg backdrop-blur-sm">{f}</span>)}</div>
-                                                <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(itineraryData[activeDay].hotel.name)}`} target="_blank" className="inline-flex items-center justify-center gap-3 w-full bg-white text-slate-900 py-4 rounded-2xl text-base font-black shadow-xl">飯店地圖導航 <IconExternalLink /></a>
+                                                <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(itineraryData[activeDay].hotel.name + " " + itineraryData[activeDay].hotel.address)}`} target="_blank" className="inline-flex items-center justify-center gap-3 w-full bg-white text-slate-900 py-4 rounded-2xl text-base font-black shadow-xl">飯店地圖導航 <IconExternalLink /></a>
                                             </div>
                                         </div>
                                     )}
